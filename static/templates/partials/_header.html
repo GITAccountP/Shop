@@ -1,0 +1,43 @@
+	<!-- Top Header -->	
+	<div class="navbar mt-2 py-3 shadow rounded-2">
+		<div class="nav ps-2">
+			<a 	{% if '/' == request.path %}
+				class="mx-2 nav-item shadow-sm btn btn-dark" 
+				{% else %}
+				class="mx-2 nav-item shadow-sm btn" 
+				{% endif %}
+				href="{% url 'home' %}"> 
+
+				<i class="fa-solid fa-house-laptop fa-lg"
+					style="color:brown;">
+				</i>
+				<span class="px-2">
+					Home
+				</span>
+			</a>
+			<a 	
+				{% if 'traders' in request.path %}
+				class="mx-2 nav-item shadow-sm btn btn-dark" 
+				{% else %}
+				class="mx-2 nav-item shadow-sm btn" 
+				{% endif %}
+
+				href="{% url 'traders.index' %}"> 
+				<i class="fa-solid fa-clipboard-list"
+					style="color: steelblue;"></i>
+				<span class="px-2">
+					Products
+				</span>
+			</a>
+		</div>
+		<div class="nav pe-4">
+			<a href = {% url 'traders.new'%}
+				class="text-dark text-decoration-none pe-4" 
+				title= "Add a new Product"
+				style="cursor:pointer">
+				<i class="fa-solid fa-circle-plus" style="color:steelblue"></i>
+				Brew your coffee
+			</a>
+			<sup>&trade;</sup>
+		</div>
+	</div>

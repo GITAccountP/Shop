@@ -1,0 +1,16 @@
+.note-li{
+    color: darkslateblue;
+    font-size: 14px;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+ul.errorlist{
+	display: none;
+}
+
+#home_text{
+    text-align: center;
+}

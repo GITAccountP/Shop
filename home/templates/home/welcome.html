@@ -1,0 +1,21 @@
+
+<!-- tell the page to "use" the base template -->
+{% extends "base.html" %}
+
+{% block content %}
+	<!--div class="text-sm-end fst-italic"> Time: {{today}} </div-->
+	<div id='home_text' style='text-align: center'>
+		<div>
+				To brew your coffee, please visit <b> Products </b> tab
+		</div>
+		<div>
+			<img src="https://nationalcoffee.blog/wp-content/uploads/2016/09/coffee-animated.gif?w=664&h=498" />
+		</div>
+	</div>
+	<div class="navbar mt-2 mb-5 border shadow rounded-4 py-2" id="header">
+		<h6 class="px-4"> 
+			Note : Please add the coffee names with Cappuccino, Latte, Matcha, Frappuccino and Cortado to view default images.
+		</h6>
+	</div>
+
+{% endblock %}

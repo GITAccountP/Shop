@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <div class="card my-4 ">
+
+        <div class="row no-gutters">
+            <div class="col-md-5" style="margin : 10px 10px 10px 10px; box-sizing: border-box; max-height:60%; max-width:60%;">
+                {% if "Cappuccino" in detailedProduct.name %}
+                    <img src="{% static 'images/Cappuccino.jpg' %}" />
+                {% elif "Latte" in detailedProduct.name %}
+                    <img src="{% static 'images/Latte.jpg' %}" />
+                {% elif "Frappuccino" in detailedProduct.name %}
+                    <img src="{% static 'images/Frappuccino.jpg' %}" />
+                {% elif "Matcha" in detailedProduct.name %}
+                    <img src="{% static 'images/Matcha.jpg' %}" />
+                {% elif "Cortado" in detailedProduct.name %}
+                    <img src="{% static 'images/Cortado.jpg' %}" />
+                {% else %}
+                    <img src="{% static 'images/Coffee.jpg' %}" />
+                {% endif %}
+            </div>
+
+            <div class="col-md-6" style="margin : 10px 10px 10px 10px; box-sizing: border-box;">
+                <div class="card-body">
+                    <h5 class="card-title">{{detailedProduct.pk}}. Product Name: {{detailedProduct.name}}</h5>
+                    <p class="card-text"> Product Description: {{detailedProduct.description}}</p>
+                    <p class="card-text"> Product Price: {{detailedProduct.price}}</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="navbar">
+        <div></div>
+        <div class="nav-item">
+            <a 	href = {% url 'traders.index' %}
+                class = "text-decoration-none btn btn-light">
+                <i class="fa-solid fa-list px-2"></i>
+                View All
+            </a>
+        </div>
+    </div>
+
+{% endblock %}

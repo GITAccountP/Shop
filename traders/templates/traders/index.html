@@ -1,0 +1,57 @@
+<!-- tell the page to "use" the base template -->
+{% extends "base.html" %}
+{% load static %}
+
+<!-- define the block content to be injected -->
+
+{% block content %}
+<div>
+	<div class="container mt-4">
+    <div class="row">
+        {% for product in products %}
+            <div class="col-md-6 mb-3">
+                <div class="card">	
+                    <div class="row no-gutters" onclick='location.href="{% url 'traders.detail' pk=product.id %}";'>
+                        <div class="col-md-5" style="margin : 10px 10px 10px 10px; box-sizing: border-box; max-height:60%; max-width:60%;">
+							<div href = {% url 'traders.detail' pk=product.id %}
+								class="text-dark text-decoration-none">
+								{% if "Cappuccino" in product.name %}
+									<img src="{% static 'images/Cappuccino.jpg' %}" width="200px" height="200px" />
+								{% elif "Latte" in product.name %}
+									<img src="{% static 'images/Latte.jpg' %}" width="200px" height="200px" />
+								{% elif "Frappuccino" in product.name %}
+									<img src="{% static 'images/Frappuccino.jpg' %}" width="200px" height="200px" />
+								{% elif "Matcha" in product.name %}
+									<img src="{% static 'images/Matcha.jpg' %}" width="200px" height="200px" />
+								{% elif "Cortado" in product.name %}
+									<img src="{% static 'images/Cortado.jpg' %}" width="200px" height="200px" />
+								{% else %}
+									<img src="{% static 'images/Coffee.jpg' %}" width="200px" height="200px" />
+								{% endif %}
+							</div>
+						</div>
+                        <div class="col-md-6" style="margin : 10px 10px 10px 10px; box-sizing: border-box;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{product.pk}}.{{ product.name }}</h5>
+                                <p class="card-text">{{ product.description|truncatechars:10 }}</p>
+                                <p class="card-text"><small class="text-muted">Price: ${{ product.price }}</small></p>
+                            </div>
+							
+								<a 	class="btn btn-light" 
+									href = "{% url 'traders.update' pk=product.id %}">
+									<i class="fa-solid fa-mug-saucer" style="color: blue;"></i>
+								</a>
+	
+								<a 	class="btn btn-light"
+									href = "{% url 'traders.delete' pk=product.id %}">
+									<i class="fas fa-trash-can" style="color:darkred"></i>
+								</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+	</div>
+</div>
+{% endblock %}
